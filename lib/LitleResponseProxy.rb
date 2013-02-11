@@ -28,24 +28,25 @@ OTHER DEALINGS IN THE SOFTWARE.
 # It objectifies the XML so you can query it using normal dot notation and
 # it stores the original raw XML so it can be accessed and stored as needed.
 # 
-
-class LitleResponseProxy
+module LitleOnline
+  class LitleResponseProxy
   
-  attr_accessor :__raw_response, :__xml_object
+    attr_accessor :__raw_response, :__xml_object
   
-  def initialize(xml)
-    self.__raw_response = xml
-    self.__xml_object   = XMLObject.new(xml)
+    def initialize(xml)
+      self.__raw_response = xml
+      self.__xml_object   = XMLObject.new(xml)
+    end
+  
+    def dump
+      self.__raw_response.to_s
+    end
+  
+    private
+  
+    def method_missing(*args)
+      self.__xml_object.send(*args)
+    end
+  
   end
-  
-  def dump
-    self.__raw_response.to_s
-  end
-  
-  private
-  
-  def method_missing(*args)
-    self.__xml_object.send(*args)
-  end
-  
 end

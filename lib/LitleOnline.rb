@@ -50,6 +50,7 @@ require_relative 'LitleXmlMapper'
 require_relative 'XMLFields'
 require_relative 'LitleOnlineRequest'
 require_relative 'Configuration'
+require_relative 'LitleResponseProxy'
 
 #allows attribute values to be in double quotes, required by Litle Server
 REXML::Attribute.class_eval( %q^

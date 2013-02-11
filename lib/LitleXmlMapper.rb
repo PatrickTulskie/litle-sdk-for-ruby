@@ -29,7 +29,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 #
 module LitleOnline
   class LitleXmlMapper
-    def LitleXmlMapper.request(request_xml, config_hash)
+    def self.request(request_xml, config_hash)
   
       # create a Litle XML request from the nested hashes
       if(config_hash['printxml'])
@@ -41,7 +41,7 @@ module LitleOnline
         puts response_xml
       end
       # create response object from xml returned form the Litle API
-      response_object = LitleResponseProxy.new(response_xml)
+      response_object = LitleOnline::LitleResponseProxy.new(response_xml)
       
       return response_object
     end
