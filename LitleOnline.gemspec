@@ -11,14 +11,13 @@ Gem::Specification.new do |gem|
   gem.email                 = "sdksupport@litle.com"
   gem.homepage              = "http://www.litle.com/developers"
   gem.required_ruby_version = '>=1.8.6'
-  gem.has_rdoc              = true
-  
+
   gem.files                 = `git ls-files`.split($/)
   gem.executables           = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.require_paths         = ["lib"]
   gem.test_files            = Dir["test/unit/ts_unit.rb"]
   gem.platform              = Gem::Platform::RUBY
-  
+
   gem.add_dependency('xml-object')
   gem.add_dependency('xml-mapping')
   gem.add_development_dependency('mocha')
